@@ -13,7 +13,7 @@ class test(unittest.TestCase):
         self.assertEqual(Calorias.calculo(test.file1),45000)
 
     def test_real(self):
-        self.assertEqual(Calorias.calculo(test.file2),73211)
+        self.assertEqual(Calorias.calculo(test.file2),213958)
 
 
 if __name__ == "__main__":
