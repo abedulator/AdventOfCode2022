@@ -13,6 +13,7 @@ class Rucksack:
             for j in fhalf:
                 if j in shalf:
                     target = j
+                    break
             
             bol = target.isupper()
             priority = ord(target) - 96 + (58*bol) 
