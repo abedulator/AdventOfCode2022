@@ -7,8 +7,31 @@ class Crane:
                 break
             separator += 1
 
+        final_list = Crane.tolist(archive,separator)
         
+        form = []
+        for y in archive[separator+1:]: #movements
+            form = y.split(" ")
+            count = int(form[1])
+            from_column = int(form[3]) -1
+            to_column = int(form[5]) -1
+            
+            for i in range(-count,0):
+                final_list[to_column].append(final_list[from_column][i])
+            
+            
+            
+            del final_list[from_column][-count:]
+                
+        
+        
+        result = ""
+        for j in range(len(final_list)):
+            result += final_list[j][-1]
 
+        return result
+
+    def tolist(archive,separator):
         numbers = archive[separator-1] #number of pilars
         
         how_many = int(len(numbers)/4)
@@ -34,28 +57,8 @@ class Crane:
             j.reverse()
             final_list[index] = ' '.join(final_list[index]).split()
             index += 1
+        return final_list
         
-        form = []
-        for y in archive[separator+1:]: #movements
-            form = y.split(" ")
-            count = int(form[1])
-            from_column = int(form[3]) -1
-            to_column = int(form[5]) -1
-            
-            for i in range(-count,0):
-                final_list[to_column].append(final_list[from_column][i])
-            
-            
-            
-            del final_list[from_column][-count:]
-                
-        
-        
-        result = ""
-        for j in range(len(final_list)):
-            result += final_list[j][-1]
-
-        return result
 if __name__ == "__main__":
     
     Crane.calculate(open("testinput.txt","r"))
