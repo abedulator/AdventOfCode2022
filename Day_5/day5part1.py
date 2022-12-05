@@ -7,22 +7,18 @@ class Crane:
                 break
             separator += 1
 
-        print(separator)
+        
 
         numbers = archive[separator-1] #number of pilars
         
         how_many = int(len(numbers)/4)
-        print(how_many)
-        print("-------------------")
         item_list = []
         
 
         for j in archive[0:separator-1]: #crane set up
             for x in range(1,how_many*4,4):
                 item_list.append(j[x])
-        print("lista de items")
-        print(item_list)
-        print("-----------------------")
+
         tmp_list = []
         final_list = []
         shift = 0
@@ -32,36 +28,28 @@ class Crane:
             final_list.append(tmp_list)
             tmp_list = []
             shift += 1
-        print("lista separada")
-        print(final_list)
-        print("-----------------------")
+       
         index = 0
         for j in final_list:
             j.reverse()
             final_list[index] = ' '.join(final_list[index]).split()
             index += 1
-        print("lista al reves y sin espacios")
-
-        print(final_list)
         
-        #one_list.reverse()
-        #one_list = ' '.join(one_list).split()
-        
-        #print(one_list)
-       
-
-
-
-
-        #print("--------------------")
+        form = []
         for y in archive[separator+1:]: #movements
-            pass
-            #print(y)
+            form = y.split(" ")
+            count = int(form[1])
+            from_column = int(form[3]) -1
+            to_column = int(form[5]) -1
+            for i in range(count):
+                final_list[to_column].append(final_list[from_column][-1])
+                final_list[from_column].pop(-1)
+                i += 1
+        result = ""
+        for j in range(len(final_list)):
+            result += final_list[j][-1]
 
-           
-            
-       
-
+        return result
 if __name__ == "__main__":
     
-    Crane.calculate(open("puzzleinput.txt","r"))
+    Crane.calculate(open("testinput.txt","r"))

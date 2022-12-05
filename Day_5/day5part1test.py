@@ -13,7 +13,7 @@ class test(unittest.TestCase):
         self.assertEqual(Crane.calculate(test.file1),"CMZ")
 
     def test_real(self):
-        self.assertEqual(Crane.calculate(test.file2),1)
+        self.assertEqual(Crane.calculate(test.file2),"VRWBSFZWM")
 
 
 if __name__ == "__main__":
