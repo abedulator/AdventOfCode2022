@@ -1,6 +1,6 @@
 import unittest
 
-from day4part2 import *
+from day5part1 import *
 
 class test(unittest.TestCase):
     file1 = open("testinput.txt","r")
@@ -10,10 +10,10 @@ class test(unittest.TestCase):
         self.assertEqual(2,1+1)
 
     def test_1(self):
-        self.assertEqual(Camp.calculate(test.file1),4)
+        self.assertEqual(Crane.calculate(test.file1),"CMZ")
 
     def test_real(self):
-        self.assertEqual(Camp.calculate(test.file2),933)
+        self.assertEqual(Crane.calculate(test.file2),1)
 
 
 if __name__ == "__main__":
