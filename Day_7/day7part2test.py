@@ -10,10 +10,10 @@ class test(unittest.TestCase):
         self.assertEqual(2,1+1)
 
     def test_1(self):
-        self.assertEqual(Directories.calculate(test.file1),1)
+        self.assertEqual(Directories.calculate(test.file1),24933642)
 
     def test_real(self):
-        self.assertEqual(Directories.calculate(test.file2),1)
+        self.assertEqual(Directories.calculate(test.file2),1815525)
 
 
 if __name__ == "__main__":
