@@ -13,7 +13,7 @@ class test(unittest.TestCase):
         self.assertEqual(Tree.calculate(test.file1),8)
 
     def test_real(self):
-        self.assertEqual(Tree.calculate(test.file2),1832)
+        self.assertEqual(Tree.calculate(test.file2),157320)
 
 
 if __name__ == "__main__":

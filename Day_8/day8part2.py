@@ -29,31 +29,36 @@ class Tree:
             for y in range(1,side-1):
                 for up in range(x-1,-1,-1):
                     if trees[x][y] <= trees[up][y]:
+                        scenic_value[0] += 1
                         break
                     else:
                         scenic_value[0] += 1
 
                 for down in range(x+1,height):
                     if trees[x][y] <= trees[down][y]:
+                        scenic_value[1] += 1
                         break
                     else:
                         scenic_value[1] += 1
 
                 for left in range(y-1,-1,-1):
                     if trees[x][y] <= trees[x][left]:
+                        scenic_value[2] += 1
                         break
                     else:
                         scenic_value[2] += 1
 
                 for right in range(y+1,side):
                     if trees[x][y] <= trees[x][right]:
+                        scenic_value[3] += 1
                         break
                     else:
                         scenic_value[3] += 1
+                #print(scenic_value)
                 mul = 1
                 for j in scenic_value:
                     mul = j * mul
-                
+                scenic_value = [0,0,0,0]
                 values.append(mul)
 
         return(max(values))
